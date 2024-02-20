@@ -59,6 +59,9 @@ def pip(args, stdin=None, stdout=None, stderr=None, **kwargs):
         cmd.extend((
             'install',
             '--upgrade-strategy=only-if-needed',
+            '--break-system-packages' 
+            # Danger! Can be destructive to the system, especially Unix-like OSes using
+            # a package manager!
         ))
         if not running_under_virtualenv():
             cmd.append('--user')
